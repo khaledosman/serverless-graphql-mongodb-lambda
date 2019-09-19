@@ -3,21 +3,76 @@
   "version": "1.0.0",
   "description": "Serverless webpack example using Typescript",
   "main": "handler.js",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:colorfy/ovs-backend.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "npx git-cz",
+    "release": "npx semantic-release",
+    "commitizen": "exec < /dev/tty && git cz",
+    "lint": "eslint **/*.ts",
+    "lint:fix": "eslint --fix **/*.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:fix",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {
     "source-map-support": "^0.5.13"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/commit-analyzer": "^6.3.0",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/npm": "^5.1.15",
+    "@semantic-release/release-notes-generator": "^7.3.0",
     "@types/aws-lambda": "^8.10.31",
     "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.5",
+    "prettier": "^1.18.2",
+    "semantic-release": "^15.13.24",
     "serverless-offline": "^5.11.0",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.1.0",
     "typescript": "^3.6.3",
     "webpack": "^4.40.2"
   },
-  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "author": "Khaled Osman",
   "license": "MIT"
 }
