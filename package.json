@@ -34,8 +34,8 @@
     "commitizen": "exec < /dev/tty && git cz",
     "lint": "eslint **/*.ts",
     "lint:fix": "eslint --fix **/*.ts",
-    "deploy:dev": "sls deploy --stage dev",
-    "deploy:live": "sls deploy --stage live"
+    "deploy:dev": "sls deploy --stage dev --region eu-central-1",
+    "deploy:live": "sls deploy --stage live --region us-east-1"
   },
   "husky": {
     "hooks": {

@@ -19,6 +19,9 @@ provider:
   region: ${opt:region, 'us-east-1'}
   apiGateway:
     minimumCompressionSize: 0
+  tracing:
+    apiGateway: true
+    lambda: true
   environment:
     NODE_ENV: PRODUCTION
 
