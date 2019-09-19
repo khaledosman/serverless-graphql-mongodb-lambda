@@ -5,7 +5,7 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/)
 
 ## Setup
-- Setup your aws credentials and ovs profile using `aws configure --profile aws`
+- Setup your aws credentials and ovs profile using `aws configure --profile ovs`
 - `npm install`
 - use `yarn start` to run in offline mode`
 - `yarn deploy:dev` to deploy dev environment
