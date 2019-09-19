@@ -18,7 +18,6 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: ${opt:stage, 'dev'}
-  # role: arn:aws:iam::969069172541:role/fe_lambda_execution
   profile: ${self:custom.aws_profile} # aws credentials profile to use
   region: ${opt:region, 'eu-central-1'}
   apiGateway:
@@ -49,10 +48,3 @@ functions:
       - http:
           method: get
           path: hello
-      - schedule:
-        name: lambda-warmer-schedule
-        rate: rate(5 minutes)
-        enabled: true
-        input:
-          warmer: true
-          concurrency: 1
