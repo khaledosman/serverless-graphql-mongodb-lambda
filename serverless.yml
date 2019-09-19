@@ -5,10 +5,14 @@ org: colorfy
 
 custom:
   aws_profile: "ovs"
+  warmup:
+    enabled: true
+    
 # Add the serverless-webpack plugin
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-plugin-warmup
 
 provider:
   name: aws
@@ -30,7 +34,12 @@ iamRoleStatements:
     Action:
       - "lambda:InvokeFunction"
     Resource:
-      "*"
+      - Fn::Join:
+        - ':'
+        - - arn:aws:lambda
+          - Ref: AWS::Region
+          - Ref: AWS::AccountId
+          - function:${self:service}-${self:provider.stage}-*
   
 
 functions:
