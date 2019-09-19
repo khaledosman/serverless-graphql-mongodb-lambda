@@ -27,12 +27,15 @@
     ]
   },
   "scripts": {
+    "start": "sls offline start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "npx git-cz",
     "release": "npx semantic-release",
     "commitizen": "exec < /dev/tty && git cz",
     "lint": "eslint **/*.ts",
-    "lint:fix": "eslint --fix **/*.ts"
+    "lint:fix": "eslint --fix **/*.ts",
+    "deploy:dev": "sls deploy --stage dev",
+    "deploy:live": "sls deploy --stage live"
   },
   "husky": {
     "hooks": {
