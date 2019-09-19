@@ -44,6 +44,7 @@
     }
   },
   "dependencies": {
+    "lambda-warmer": "^1.2.1",
     "source-map-support": "^0.5.13"
   },
   "devDependencies": {
