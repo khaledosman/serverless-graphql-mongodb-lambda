@@ -1,7 +1,4 @@
-import { APIGatewayProxyHandler, Context, APIGatewayEvent } from 'aws-lambda'
-import 'source-map-support/register'
-
-export const hello: APIGatewayProxyHandler = async (event: APIGatewayEvent & {source: string}, _context: Context & {custom: any}) => {
+export const hello = async (event, _context) => {
   _context.callbackWaitsForEmptyEventLoop = false
   // if a warming event
   if (event.source === 'serverless-plugin-warmup' || _context.custom.source === 'serverless-plugin-warmup') {

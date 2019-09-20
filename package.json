@@ -26,20 +26,14 @@
       "@semantic-release/git"
     ]
   },
-  "standard": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint/eslint-plugin"
-    ]
-  },
   "scripts": {
     "start": "sls offline start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "npx git-cz",
     "release": "npx semantic-release",
     "commitizen": "exec < /dev/tty && git cz",
-    "lint": "eslint **/*.ts",
-    "lint:fix": "eslint --fix **/*.ts",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "deploy": "yarn deploy:dev",
     "deploy:dev": "sls deploy --stage dev --region eu-central-1",
     "deploy:live": "sls deploy --stage live --region us-east-1"
@@ -51,7 +45,7 @@
     }
   },
   "dependencies": {
-    "source-map-support": "^0.5.13"
+    "apollo-server-lambda": "^2.9.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -63,27 +57,12 @@
     "@semantic-release/release-notes-generator": "^7.3.0",
     "@types/aws-lambda": "^8.10.31",
     "@types/node": "^12.7.5",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
     "aws-sdk": "^2.531.0",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.4.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.0.0-beta.1",
-    "prettier": "^1.18.2",
     "semantic-release": "^15.13.24",
     "serverless-offline": "^5.11.0",
-    "serverless-plugin-warmup": "^4.7.0-rc.1",
-    "serverless-webpack": "^5.3.1",
-    "ts-loader": "^6.1.0",
-    "typescript": "^3.6.3",
-    "webpack": "^4.40.2"
+    "serverless-plugin-warmup": "^4.7.0-rc.1"
   },
   "author": "Khaled Osman",
   "license": "MIT"
