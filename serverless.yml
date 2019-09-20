@@ -7,6 +7,8 @@ custom:
   aws_profile: "ovs"
   warmup:
     enabled: true
+    prewarm: true
+    concurrency: 1
     
 # Add the serverless-webpack plugin
 plugins:
@@ -21,7 +23,7 @@ provider:
   profile: ${self:custom.aws_profile} # aws credentials profile to use
   region: ${opt:region, 'eu-central-1'}
   apiGateway:
-    minimumCompressionSize: 0
+    minimumCompressionSize: 1024
   tracing:
     apiGateway: true
     lambda: true

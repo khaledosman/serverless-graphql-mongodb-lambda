@@ -1,9 +1,11 @@
-import { APIGatewayProxyHandler } from 'aws-lambda'
+import { APIGatewayProxyHandler, Context, APIGatewayEvent } from 'aws-lambda'
 import 'source-map-support/register'
 
-export const hello: APIGatewayProxyHandler = async (event: any, _context) => {
+export const hello: APIGatewayProxyHandler = async (event: APIGatewayEvent & {source: string}, _context: Context & {custom: any}) => {
+  _context.callbackWaitsForEmptyEventLoop = false
   // if a warming event
-  if (event.source === 'serverless-plugin-warmup') {
+  if (event.source === 'serverless-plugin-warmup' || _context.custom.source === 'serverless-plugin-warmup') {
+    console.log('WarmUp - Lambda is warm!')
     return {
       statusCode: 200,
       body: 'warmed'

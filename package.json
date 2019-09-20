@@ -26,6 +26,12 @@
       "@semantic-release/git"
     ]
   },
+  "standard": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  },
   "scripts": {
     "start": "sls offline start",
     "test": "echo \"Error: no test specified\" && exit 1",
