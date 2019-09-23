@@ -29,6 +29,7 @@ provider:
   environment:
     NODE_ENV: PRODUCTION
     AWS_STAGE: ${self:provider.stage}
+    DEV_URL: https://7l176hzqdk.execute-api.eu-central-1.amazonaws.com/dev
 
 iamRoleStatements:
   - Effect: 'Allow'
@@ -57,7 +58,7 @@ functions:
       ENGINE_API_KEY: service:ovs-backend:w8Qpuy-s9qa6ib_y0uVN8w
     events:
       - http:
-          path: graphiql
+          path: playground
           method: get
           cors: true
       - http:

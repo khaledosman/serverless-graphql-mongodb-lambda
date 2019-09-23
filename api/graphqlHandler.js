@@ -17,7 +17,9 @@ const server = new ApolloServer({
   //
   // If you'd like to have GraphQL Playground and introspection enabled in production,
   // the `playground` and `introspection` options must be set explicitly to `true`.
-  playground: true,
+  playground: {
+    endpoint: process.env.AWS_STAGE === 'dev' ? `${process.env.DEV_URL}/graphql` : `${process.env.LIVE_URL}/graphql`
+  },
   introspection: true,
   tracing: true,
   cacheControl: {
