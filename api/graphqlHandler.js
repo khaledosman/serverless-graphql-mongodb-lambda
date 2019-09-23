@@ -27,7 +27,8 @@ const server = new ApolloServer({
   },
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
-    debugPrintReports: true
+    debugPrintReports: true,
+    schemaTag: process.env.AWS_STAGE
   },
   //  cache: new RedisCache({
   //   host: 'redis-server',
