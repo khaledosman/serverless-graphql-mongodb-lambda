@@ -1,6 +1,12 @@
 const resolvers = {
   Query: {
-    hello: () => 'Hello world!'
+    hello: () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('Hello after two seconds, cached for 10 seconds')
+        }, 2000)
+      })
+    }
   }
 }
 

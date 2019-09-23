@@ -28,6 +28,7 @@ provider:
     lambda: true
   environment:
     NODE_ENV: PRODUCTION
+    AWS_STAGE: ${self:provider.stage}
 
 iamRoleStatements:
   - Effect: 'Allow'
@@ -52,8 +53,14 @@ functions:
 
   graphql:
     handler: api/graphqlHandler.graphqlHandler
+    environment:
+      ENGINE_API_KEY: service:ovs-backend:w8Qpuy-s9qa6ib_y0uVN8w
     events:
-    - http:
-        path: graphql
-        method: any
-        cors: true
+      - http:
+          path: graphiql
+          method: get
+          cors: true
+      - http:
+          path: graphql
+          method: post
+          cors: true
