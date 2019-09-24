@@ -29,6 +29,8 @@ provider:
   environment:
     NODE_ENV: PRODUCTION
     AWS_STAGE: ${self:provider.stage}
+    DEV_MONGO: mongodb+srv://ovs-lambda:kEV3ZG4THEqiCnXa@ovs-backend-dev-rhxfp.mongodb.net/test?retryWrites=true&w=majority
+    LIVE_MONGO: TBD
     DEV_URL: https://7l176hzqdk.execute-api.eu-central-1.amazonaws.com/dev
     LIVE_URL: https://1fh55grwfg.execute-api.us-east-1.amazonaws.com/live
 
