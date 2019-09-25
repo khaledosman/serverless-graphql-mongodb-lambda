@@ -8,5 +8,9 @@ jspm_packages
 # Webpack directories
 .webpack
 
+# Env variables/secrets
+env.yml
+
 yarn.lock
 package-lock.json
+
