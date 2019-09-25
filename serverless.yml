@@ -1,13 +1,13 @@
 service:
   name: omniview-backend
-app: ovs-backend
-org: colorfy
+# app: omniview-backend
+# org: colorfy
 
 custom:
   aws_profile: "ovs"
   environment: ${file(env.yml):${self:provider.stage}, file(env.yml):default}
   warmup:
-    enabled: true
+    enabled: false
     prewarm: true
     concurrency: 1
     
@@ -48,6 +48,13 @@ iamRoleStatements:
   
 
 functions:
+  hello:
+    handler: api/handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+
   graphql:
     handler: api/graphqlHandler.graphqlHandler
     events:
