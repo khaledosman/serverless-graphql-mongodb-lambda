@@ -11,13 +11,11 @@ const server = new ApolloServer({
   introspection: true,
   tracing: true,
   cacheControl: { defaultMaxAge: 10 },
-  ...(!process.env.IS_OFFLINE && {
-    engine: {
-      apiKey: process.env.ENGINE_API_KEY,
-      debugPrintReports: true,
-      schemaTag: process.env.AWS_STAGE
-    }
-  }),
+  engine: {
+    apiKey: process.env.ENGINE_API_KEY,
+    debugPrintReports: true,
+    schemaTag: process.env.AWS_STAGE
+  },
   // cache: new RedisCache({
   //   host: 'redis-server'
   //   // Options are passed through to the Redis client

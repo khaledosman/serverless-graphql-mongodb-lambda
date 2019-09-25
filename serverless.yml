@@ -48,13 +48,6 @@ iamRoleStatements:
   
 
 functions:
-  hello:
-    handler: api/handler.hello
-    events:
-      - http:
-          method: get
-          path: hello
-
   graphql:
     handler: api/graphqlHandler.graphqlHandler
     events:
