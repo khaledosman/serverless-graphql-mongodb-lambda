@@ -6,6 +6,21 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/)
 
+## Features / Tools
+
+1. VSCode debugger setup at `.vscode/launch.json` with serverless-offline, just press f5 to start a local server and inspect break points
+1. Apollo-Server v2 setup for an AWS Lambda
+1. Caching GraphQL Responses in memory or redis
+1. Mongoose & Caching connections outside of lambda handler
+1. Serverless setup for different environments
+1. serverless-wamrup plugin integration to reduce cold starts possibility
+1. Semantic-versioning, changelog generation and automated releases thanks to semantic-release
+1. Gzip compression
+1. Environment variables per stage can be defined in an `env.yml` file
+1. AWS X-Ray integration for traces
+1. GraphQL Playground integration
+1. Apollo Engine/Graph Manager integration
+
 ## Setup
 
 - Setup your aws credentials and ovs profile using `aws configure --profile ovs`
