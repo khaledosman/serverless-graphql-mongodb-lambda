@@ -42,7 +42,7 @@ iamRoleStatements:
       - sqs:ReceiveMessage
       - sqs:DeleteMessage
       - sqs:GetQueueAttributes
-    Resource: "${self:custom.environment.SQS_ARN}"
+    Resource: "${self:custom.environment.SQS_QUEUE_ARN}"
 
   - Effect: 'Allow'
     Action:
@@ -69,7 +69,7 @@ functions:
     handler: api/sqsHandler.handler
     events:
       - sqs:
-          arn: ${self:custom.environment.SQS_ARN}
+          arn: ${self:custom.environment.SQS_QUEUE_ARN}
           batchSize: 2
 
   graphql:
