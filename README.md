@@ -11,15 +11,17 @@
 1. VSCode debugger setup at `.vscode/launch.json` with serverless-offline, just press f5 to start a local server and inspect break points
 1. Apollo-Server v2 setup for an AWS Lambda
 1. Caching GraphQL Responses in memory or redis
-1. Mongoose & Caching connections outside of lambda handler
-1. Serverless setup for different environments
-1. serverless-wamrup plugin integration to reduce cold starts possibility
+1. MongoDB/Mongoose integration & Caching connections outside of lambda handler
+1. Serverless setup for different environments & deployment targets
+1. serverless-warmup plugin integration to reduce cold starts possibility and keep the lambdas warm
 1. Semantic-versioning, changelog generation and automated releases thanks to semantic-release
+1. Linting with StandardJS
 1. Gzip compression
 1. Environment variables per stage can be defined in an `env.yml` file
 1. AWS X-Ray integration for traces
-1. GraphQL Playground integration
-1. Apollo Engine/Graph Manager integration
+1. GraphQL Playground integration w/ traces
+1. Apollo Engine/Graph Manager integration for monitoring
+1. Serverless Dashboard monitoring
 
 ## Setup
 
