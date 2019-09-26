@@ -35,6 +35,15 @@ provider:
     AWS_STAGE: ${self:provider.stage}
 
 iamRoleStatements:
+  iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+      - sqs:SendMessage
+      - sqs:ReceiveMessage
+      - sqs:DeleteMessage
+      - sqs:GetQueueAttributes
+    Resource: "${self:custom.environment.SQS_ARN}"
+
   - Effect: 'Allow'
     Action:
       - "lambda:InvokeFunction"
@@ -60,8 +69,8 @@ functions:
     handler: api/sqsHandler.handler
     events:
       - sqs:
-        arn: arn:aws:sqs:eu-central-1:920046484061:live-updates-queue
-        batchSize: 2
+          arn: ${self:custom.environment.SQS_ARN}
+          batchSize: 2
 
   graphql:
     handler: api/graphqlHandler.graphqlHandler
