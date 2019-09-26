@@ -1,6 +1,6 @@
 service:
-  name: omniview-backend
-# app: omniview-backend
+  name: ovs-backend
+# app: omniviewsports
 # org: colorfy
 
 custom:
