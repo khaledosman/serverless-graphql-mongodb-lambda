@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 mongoose.set('debug', true)
-let conn = null
+let cachedConnection = null
 
 function initConnection () {
-  if (conn === null) {
+  if (cachedConnection === null) {
     return mongoose.createConnection(process.env.MONGO_URL, {
       bufferCommands: false,
       bufferMaxEntries: 0,
@@ -12,13 +12,13 @@ function initConnection () {
       useCreateIndex: true,
       useFindAndModify: false
     }).then(async connection => {
-      conn = connection
+      cachedConnection = connection
       console.log('connected to mongo')
-      return conn
+      return cachedConnection
     })
   } else {
     console.log('using cached connection')
-    return Promise.resolve(conn)
+    return Promise.resolve(cachedConnection)
   }
 }
 

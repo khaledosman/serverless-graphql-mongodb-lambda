@@ -55,6 +55,14 @@ functions:
           path: hello
           method: get
 
+
+  sqsHandler:
+    handler: api/sqsHandler.handler
+    events:
+      - sqs:
+        arn: arn:aws:sqs:eu-central-1:920046484061:live-updates-queue
+        batchSize: 2
+
   graphql:
     handler: api/graphqlHandler.graphqlHandler
     events:
@@ -66,3 +74,7 @@ functions:
           path: graphql
           method: post
           cors: true
+          
+      # - cloudFront:
+      #     eventType: origin-request
+      #     origin: https://app.acme.com
