@@ -1,12 +1,14 @@
 const { ApolloServer } = require('apollo-server-lambda')
+const { importSchema } = require('graphql-import')
 const { resolvers } = require('./resolvers')
-const { typeDefs } = require('./schema')
+const typeDefs = importSchema('./graphql/schema.graphql')
 const responseCachePlugin = require('apollo-server-plugin-response-cache')
 // const { RedisCache } = require('apollo-server-cache-redis')
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  // mocks: true,
   playground: { endpoint: process.env.IS_OFFLINE ? 'http://localhost:3000/graphql' : `${process.env.BASE_URL}/graphql` },
   introspection: true,
   tracing: true,
