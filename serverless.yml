@@ -55,6 +55,24 @@ iamRoleStatements:
           - Ref: AWS::AccountId
           - function:${self:service}-${self:provider.stage}-*
   
+package: # Optional deployment packaging configuration
+  # include: # Specify the directories and files which should be included in the deployment package
+    # - src/**
+    # - handler.js
+  exclude: # Specify the directories and files which should be excluded in the deployment package
+    - .git/**
+    - apollo.config.js
+    - commitlint.config.js
+    - env.yml
+    - .env
+    - package-lock.json
+    - package.json
+    - yarn.lock
+    - README.md
+    - scripts/**
+    - .vscode/**
+    - .DS_Store
+  excludeDevDependencies: true
 
 functions:
   hello:
