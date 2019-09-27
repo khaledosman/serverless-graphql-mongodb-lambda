@@ -36,8 +36,8 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "deploy": "yarn deploy:dev",
-    "deploy:dev": "sls deploy --stage dev --region eu-central-1",
-    "deploy:live": "sls deploy --stage live --region us-east-1",
+    "deploy:dev": "sls deploy --stage dev --region eu-central-1 && apollo service:push --tag=dev",
+    "deploy:live": "sls deploy --stage live --region us-east-1 && apollo service:push --tag=live",
     "update-engine": "npx apollo service:push --endpoint https://h7y51nnuhb.execute-api.eu-central-1.amazonaws.com/dev/graphql"
   },
   "husky": {
@@ -62,7 +62,7 @@
     "@semantic-release/release-notes-generator": "^7.3.0",
     "@types/aws-lambda": "^8.10.33",
     "@types/node": "^12.7.8",
-    "aws-sdk": "^2.536.0",
+    "aws-sdk": "^2.537.0",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^4.0.0-beta.1",
     "semantic-release": "^15.13.24",
