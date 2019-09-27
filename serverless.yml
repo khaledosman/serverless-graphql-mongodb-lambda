@@ -1,6 +1,6 @@
 service:
-  name: ovs-backend
-# app: omniviewsports
+  name: ovs-backend-${self:provider.stage}
+# app: ovs
 # org: colorfy
 
 custom:
