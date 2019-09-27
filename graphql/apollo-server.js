@@ -31,12 +31,12 @@ const server = new ApolloServer({
     // const user = getUser(token)
     // add the user to the context
     // return { user }
-  },
-  persistedQueries: {
-    // cache: new RedisCache({
-    //   host: 'redis-server'
-    // // Options are passed through to the Redis client
-    // })
   }
+  // persistedQueries: {
+  // cache: new RedisCache({
+  //   host: 'redis-server'
+  // // Options are passed through to the Redis client
+  // })
+  // }
 })
 module.exports = { server }
