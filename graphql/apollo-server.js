@@ -11,7 +11,8 @@ const server = new ApolloServer({
   // mocks: true,
   playground: { endpoint: process.env.IS_OFFLINE ? 'http://localhost:3000/graphql' : `${process.env.BASE_URL}/graphql` },
   introspection: true,
-  tracing: true,
+  tracing: false,
+  sendReportsImmediately: true,
   cacheControl: { defaultMaxAge: 10 },
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
