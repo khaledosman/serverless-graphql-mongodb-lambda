@@ -1,7 +1,7 @@
 service:
   name: ovs-backend-${self:provider.stage}
-# app: ovs
-# org: colorfy
+app: ovs
+org: colorfy
 
 custom:
   aws_profile: "ovs"
