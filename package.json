@@ -52,7 +52,7 @@
     "apollo-server-lambda": "^2.9.4",
     "apollo-server-plugin-response-cache": "^0.3.4",
     "graphql-import": "^0.7.1",
-    "mongoose": "^5.7.1"
+    "mongoose": "^5.7.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -65,7 +65,7 @@
     "@types/aws-lambda": "^8.10.33",
     "@types/node": "^12.7.8",
     "apollo": "^2.18.3",
-    "aws-sdk": "^2.538.0",
+    "aws-sdk": "^2.539.0",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^4.0.0-beta.1",
     "semantic-release": "^15.13.24",

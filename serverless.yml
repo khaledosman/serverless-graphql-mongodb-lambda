@@ -1,7 +1,7 @@
 service:
-  name: ovs-backend-${self:provider.stage}
-app: ovs
-org: colorfy
+  name: ovs-backend
+# app: ovs
+# org: colorfy
 
 custom:
   aws_profile: "ovs"
@@ -9,6 +9,7 @@ custom:
   warmup:
     enabled: false
     prewarm: true
+    name: ${self:service}-${self:provider.stage}-lambda-warmer
     concurrency: 1
     
 # Add the serverless-webpack plugin
