@@ -8,7 +8,7 @@ const responseCachePlugin = require('apollo-server-plugin-response-cache')
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // mocks: true,
+  mocks: true,
   playground: { endpoint: process.env.IS_OFFLINE ? 'http://localhost:3000/graphql' : `${process.env.BASE_URL}/graphql` },
   introspection: true,
   tracing: false,

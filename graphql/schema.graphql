@@ -1,6 +1,118 @@
 type Query {
   hello: String
   user: User
+  getGames: GetGamesResponse
+}
+
+type GetGamesResponse {
+  live: [LiveGame]
+  past: [Game]
+  future: [FutureGame]
+}
+
+# type Mutation {
+
+# }
+# scalar Date
+
+interface Game {
+  date: String
+  sport: Sport
+  leage: League
+  periods: Int
+  totalGameTime: Int
+  team1: Team
+  team2: Team 
+}
+
+type LiveGame implements Game {
+  date: String
+  sport: Sport
+  leage: League
+  periods: Int
+  totalGameTime: Int
+  team1: Team
+  team2: Team 
+  channel: String
+  live: LiveStats
+}
+
+type PastGame implements Game {
+  date: String
+  sport: Sport
+  leage: League
+  periods: Int
+  totalGameTime: Int
+  team1: Team
+  team2: Team 
+}
+
+type FutureGame implements Game {
+  date: String
+  sport: Sport
+  leage: League
+  periods: Int
+  totalGameTime: Int
+  team1: Team
+  team2: Team 
+  channel: String
+}
+type LiveStats {
+  excitment: ExcitometerLevel
+  timePlayed: Int
+  team1Score: Int
+  team2Score: Int
+  ball: Int # 0 = team1, 1 = team2
+  ballHalf: Int  # 0 = ball in team1's half field, 1 = ...
+  yards: Int
+  try: Int
+  yardsLeft: Int
+}
+
+type Team {
+  name: String
+  initials: String
+  score: Int
+  hasBall: Boolean
+  odd: Int
+  image: String
+  standing: Standing
+}
+
+type Standing {
+  victories: Int
+  defeats: Int
+  draws: Int
+}
+
+enum Sport {
+  FOOTBALL
+  BASKETBALL
+}
+
+enum FootballLeague {
+  NFL
+  NCAAF
+}
+
+enum BasketballLeague {
+  NBA
+  NCAAB
+}
+
+enum ExcitometerLevel {
+  EPIC
+  HOT
+  GOOD
+  MEDIUM
+}
+
+# union League = FootballLeague | BasketballLeague
+enum League {
+  NFL
+  NCAAF
+  NBA
+  NCAAB
 }
 
 type User {
