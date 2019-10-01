@@ -37,7 +37,9 @@
     "lint:fix": "standard --fix",
     "deploy": "yarn deploy:dev",
     "deploy:dev": "sls deploy --stage dev --region eu-central-1 && npx apollo service:push --tag=dev",
-    "deploy:live": "sls deploy --stage live --region us-east-1 && npx apollo service:push --tag=live"
+    "deploy:live": "sls deploy --stage live --region us-east-1 && npx apollo service:push --tag=live",
+    "remove:dev": "sls remove --stage dev --region eu-central-1",
+    "remove:live": "sls remove --stage live --region us-east-1"
   },
   "husky": {
     "hooks": {
