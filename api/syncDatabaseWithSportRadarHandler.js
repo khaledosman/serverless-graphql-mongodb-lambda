@@ -1,4 +1,4 @@
-module.exports.hello = async (event, context) => {
+module.exports.handler = async (event, context) => {
   if (event.source === 'serverless-plugin-warmup' || (context.custom && context.custom.source === 'serverless-plugin-warmup')) {
     console.log('WarmUp - Lambda is warm!')
     return {

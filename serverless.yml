@@ -29,6 +29,7 @@ provider:
     apiGateway: true
     lambda: true
   environment:
+    REDIS_URL: ${self:custom.environment.REDIS_URL}
     MONGO_URL: ${self:custom.environment.MONGO_URL}
     ENGINE_API_KEY: ${self:custom.environment.ENGINE_API_KEY}
     BASE_URL: ${self:custom.environment.BASE_URL}
@@ -76,22 +77,21 @@ package: # Optional deployment packaging configuration
   excludeDevDependencies: true
 
 functions:
-  hello:
-    handler: api/handler.hello
+  syncDatabaseWithSportRadarHandler:
+    handler: api/syncDatabaseWithSportRadarHandler.handler
     events:
       - http:
           path: hello
           method: get
 
-
-  sqsHandler:
-    handler: api/sqsHandler.handler
+  liveUpdateHandler:
+    handler: api/liveUpdateHandler.handler
     events:
       - sqs:
           arn: ${self:custom.environment.SQS_QUEUE_ARN}
           batchSize: 2
 
-  graphql:
+  graphqlHandler:
     handler: api/graphqlHandler.graphqlHandler
     events:
       - http:
