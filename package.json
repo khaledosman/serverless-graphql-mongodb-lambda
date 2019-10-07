@@ -49,8 +49,9 @@
   },
   "dependencies": {
     "apollo-server-cache-redis": "^1.1.4",
-    "apollo-server-lambda": "^2.9.4",
+    "apollo-server-lambda": "^2.9.5",
     "apollo-server-plugin-response-cache": "^0.3.4",
+    "axios": "^0.19.0",
     "graphql-import": "^0.7.1",
     "mongoose": "^5.7.3"
   },
@@ -64,8 +65,8 @@
     "@semantic-release/release-notes-generator": "^7.3.0",
     "@types/aws-lambda": "^8.10.33",
     "@types/node": "^12.7.11",
-    "apollo": "^2.18.3",
-    "aws-sdk": "^2.542.0",
+    "apollo": "^2.19.0",
+    "aws-sdk": "^2.543.0",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^4.0.0-beta.1",
     "semantic-release": "^15.13.24",

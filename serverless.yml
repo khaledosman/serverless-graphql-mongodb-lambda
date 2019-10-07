@@ -7,7 +7,7 @@ custom:
   aws_profile: "ovs"
   environment: ${file(env.yml):${self:provider.stage}, file(env.yml):default}
   warmup:
-    enabled: false
+    enabled: true
     prewarm: true
     name: ${self:service}-${self:provider.stage}-lambda-warmer
     concurrency: 1

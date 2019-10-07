@@ -33,7 +33,14 @@
 
 ## Environment variables
 
-Environment variables can be setup in `env.yml` file
+- Environment variables can be setup in `env.yml` file
+- add your `ENGINE_API_KEY` to a .env file
+
+## Deploying
+
+- Install serverless cli using `npm i -g serverless`
+- Install and setup your aws cli with an "ovs" profile using `aws config --profile=ovs`
+- use `yarn deploy:dev` or `yarn deploy:live`
 
 ## Releasing
 

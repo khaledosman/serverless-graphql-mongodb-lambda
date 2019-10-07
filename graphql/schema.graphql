@@ -18,7 +18,7 @@ type GetGamesResponse {
 interface Game {
   date: String
   sport: Sport
-  leage: League
+  league: League
   periods: Int
   totalGameTime: Int
   team1: Team
@@ -28,7 +28,7 @@ interface Game {
 type LiveGame implements Game {
   date: String
   sport: Sport
-  leage: League
+  league: League
   periods: Int
   totalGameTime: Int
   team1: Team
@@ -40,7 +40,7 @@ type LiveGame implements Game {
 type PastGame implements Game {
   date: String
   sport: Sport
-  leage: League
+  league: League
   periods: Int
   totalGameTime: Int
   team1: Team
@@ -50,7 +50,7 @@ type PastGame implements Game {
 type FutureGame implements Game {
   date: String
   sport: Sport
-  leage: League
+  league: League
   periods: Int
   totalGameTime: Int
   team1: Team
