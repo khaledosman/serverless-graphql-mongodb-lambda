@@ -81,7 +81,7 @@ package: # Optional deployment packaging configuration
 
 functions:
   syncDatabaseWithSportRadarHandler:
-    handler: api/syncDatabaseWithSportRadarHandler.handler
+    handler: api/syncDatabaseHandler.handler
     events:
       # - http:
       #     path: hello
