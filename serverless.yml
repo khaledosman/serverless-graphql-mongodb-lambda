@@ -29,7 +29,7 @@ provider:
     apiGateway: true
     lambda: true
   environment:
-    REDIS_URL: ${self:custom.environment.REDIS_URL}
+    REDIS_HOST: ${self:custom.environment.REDIS_HOST}
     REDIS_PASSWORD: ${self:custom.environment.REDIS_PASSWORD}
     REDIS_PORT: ${self:custom.environment.REDIS_PORT}
     MONGO_URL: ${self:custom.environment.MONGO_URL}

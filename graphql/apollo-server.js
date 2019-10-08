@@ -6,7 +6,7 @@ const responseCachePlugin = require('apollo-server-plugin-response-cache')
 const { RedisCache } = require('apollo-server-cache-redis')
 
 const redisOptions = {
-  host: process.env.REDIS_URL,
+  host: process.env.REDIS_HOST,
   password: process.env.REDIS_PASSWORD,
   port: process.env.REDIS_PORT
 }
