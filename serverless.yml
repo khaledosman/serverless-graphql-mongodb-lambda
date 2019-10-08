@@ -1,10 +1,10 @@
 service:
-  name: ovs-backend
-app: ovs
-org: colorfy
+  name: serviceName
+app: app
+org: org
 
 custom:
-  aws_profile: "ovs"
+  aws_profile: "awsprofile"
   environment: ${file(env.yml):${self:provider.stage}, file(env.yml):default}
   warmup:
     enabled: true
@@ -37,7 +37,7 @@ provider:
     BASE_URL: ${self:custom.environment.BASE_URL}
     NODE_ENV: PRODUCTION
     AWS_STAGE: ${self:provider.stage}
-    GOOGLE_APPLICATIONS_CREDENTIALS: './ovs-app-firebase-adminsdk-b9hfq-04afa17dbf.json'
+    GOOGLE_APPLICATIONS_CREDENTIALS: './firebase-adminsdk.json'
 
 iamRoleStatements:
   iamRoleStatements:
