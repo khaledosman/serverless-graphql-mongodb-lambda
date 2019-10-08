@@ -1,4 +1,4 @@
-# OVS Backend
+# serverless-graphql-mongodb-lambda
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
@@ -25,7 +25,7 @@
 
 ## Setup
 
-- Setup your aws credentials and ovs profile using `aws configure --profile ovs`
+- Setup your aws credentials and aws profile using `aws configure --profile <aws profile>`
 - `npm install`
 - use `yarn start` to run in offline mode`
 - `yarn deploy:dev` to deploy dev environment
@@ -39,7 +39,7 @@
 ## Deploying
 
 - Install serverless cli using `npm i -g serverless`
-- Install and setup your aws cli with an "ovs" profile using `aws config --profile=ovs`
+- Install and setup your aws cli with an aws profile using `aws config --profile=<aws profile>`
 - use `yarn deploy:dev` or `yarn deploy:live`
 
 ## Releasing
