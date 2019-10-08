@@ -30,6 +30,8 @@ provider:
     lambda: true
   environment:
     REDIS_URL: ${self:custom.environment.REDIS_URL}
+    REDIS_PASSWORD: ${self:custom.environment.REDIS_PASSWORD}
+    REDIS_PORT: ${self:custom.environment.REDIS_PORT}
     MONGO_URL: ${self:custom.environment.MONGO_URL}
     ENGINE_API_KEY: ${self:custom.environment.ENGINE_API_KEY}
     BASE_URL: ${self:custom.environment.BASE_URL}

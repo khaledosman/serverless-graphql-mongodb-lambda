@@ -66,7 +66,7 @@
     "@types/aws-lambda": "^8.10.33",
     "@types/node": "^12.7.11",
     "apollo": "^2.19.0",
-    "aws-sdk": "^2.543.0",
+    "aws-sdk": "^2.544.0",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^4.0.0-beta.1",
     "semantic-release": "^15.13.24",

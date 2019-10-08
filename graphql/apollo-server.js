@@ -3,7 +3,13 @@ const { importSchema } = require('graphql-import')
 const { resolvers } = require('./resolvers')
 const typeDefs = importSchema('./graphql/schema.graphql')
 const responseCachePlugin = require('apollo-server-plugin-response-cache')
-// const { RedisCache } = require('apollo-server-cache-redis')
+const { RedisCache } = require('apollo-server-cache-redis')
+
+const redisOptions = {
+  host: process.env.REDIS_URL,
+  password: process.env.REDIS_PASSWORD,
+  port: process.env.REDIS_PORT
+}
 
 const server = new ApolloServer({
   typeDefs,
@@ -19,10 +25,7 @@ const server = new ApolloServer({
     debugPrintReports: true,
     schemaTag: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE
   },
-  // cache: new RedisCache({
-  //   host: 'redis-server'
-  //   // Options are passed through to the Redis client
-  // }),
+  cache: new RedisCache(redisOptions),
   plugins: [responseCachePlugin()],
   schemaTag: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE,
   context: async ({ event, context }) => {
@@ -32,12 +35,9 @@ const server = new ApolloServer({
     // const user = getUser(token)
     // add the user to the context
     // return { user }
+  },
+  persistedQueries: {
+    cache: new RedisCache(redisOptions)
   }
-  // persistedQueries: {
-  // cache: new RedisCache({
-  //   host: 'redis-server'
-  // // Options are passed through to the Redis client
-  // })
-  // }
 })
 module.exports = { server }
