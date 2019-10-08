@@ -1,11 +1,11 @@
 {
-  "name": "ovs-backend",
+  "name": "serverless-graphql-mongodb-lambda",
   "version": "1.0.0",
   "description": "Serverless webpack example using Typescript",
   "main": "handler.js",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:colorfy/ovs-backend.git"
+    "url": ""
   },
   "config": {
     "commitizen": {
