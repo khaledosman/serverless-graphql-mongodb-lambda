@@ -37,6 +37,7 @@ provider:
     BASE_URL: ${self:custom.environment.BASE_URL}
     NODE_ENV: PRODUCTION
     AWS_STAGE: ${self:provider.stage}
+    GOOGLE_APPLICATIONS_CREDENTIALS: './ovs-app-firebase-adminsdk-b9hfq-04afa17dbf.json'
 
 iamRoleStatements:
   iamRoleStatements:
