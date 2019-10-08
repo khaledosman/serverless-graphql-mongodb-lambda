@@ -80,9 +80,10 @@ functions:
   syncDatabaseWithSportRadarHandler:
     handler: api/syncDatabaseWithSportRadarHandler.handler
     events:
-      - http:
-          path: hello
-          method: get
+      # - http:
+      #     path: hello
+      #     method: get
+      - schedule: cron(*/5 * * * ? *) # +2h for Berlin Time
 
   liveUpdateHandler:
     handler: api/liveUpdateHandler.handler
