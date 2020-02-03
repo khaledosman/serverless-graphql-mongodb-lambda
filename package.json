@@ -72,7 +72,7 @@
     "semantic-release": "^16.0.4",
     "serverless": "^1.62.0",
     "serverless-offline": "^5.12.1",
-    "serverless-plugin-warmup": "^4.7.1-rc.1"
+    "serverless-plugin-warmup": "^4.8.0"
   },
   "author": "Khaled Osman",
   "license": "MIT"
