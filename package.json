@@ -68,7 +68,7 @@
     "apollo": "^2.21.3",
     "aws-sdk": "^2.602.0",
     "cz-conventional-changelog": "^3.0.2",
-    "husky": "^4.0.9",
+    "husky": "^4.2.1",
     "semantic-release": "^16.0.4",
     "serverless": "^1.61.1",
     "serverless-offline": "^5.12.1",
