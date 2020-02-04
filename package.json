@@ -65,7 +65,7 @@
     "@semantic-release/release-notes-generator": "^7.3.5",
     "@types/aws-lambda": "^8.10.39",
     "@types/node": "^13.7.0",
-    "apollo": "^2.21.3",
+    "apollo": "^2.22.0",
     "aws-sdk": "^2.610.0",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^4.2.1",
