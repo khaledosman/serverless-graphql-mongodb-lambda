@@ -1,7 +1,7 @@
 service:
   name: serviceName
-app: app
-org: org
+# app: app
+# org: org
 
 custom:
   aws_profile: "awsprofile"
@@ -11,7 +11,7 @@ custom:
     prewarm: true
     name: ${self:service}-${self:provider.stage}-lambda-warmer
     concurrency: 1
-    
+
 # Add the serverless-webpack plugin
 plugins:
   - serverless-offline
@@ -37,33 +37,33 @@ provider:
     BASE_URL: ${self:custom.environment.BASE_URL}
     NODE_ENV: PRODUCTION
     AWS_STAGE: ${self:provider.stage}
-    GOOGLE_APPLICATIONS_CREDENTIALS: './firebase-adminsdk.json'
+    GOOGLE_APPLICATIONS_CREDENTIALS: "./firebase-adminsdk.json"
 
 iamRoleStatements:
   iamRoleStatements:
-  - Effect: "Allow"
-    Action:
-      - sqs:SendMessage
-      - sqs:ReceiveMessage
-      - sqs:DeleteMessage
-      - sqs:GetQueueAttributes
-    Resource: "${self:custom.environment.SQS_QUEUE_ARN}"
+    - Effect: "Allow"
+      Action:
+        - sqs:SendMessage
+        - sqs:ReceiveMessage
+        - sqs:DeleteMessage
+        - sqs:GetQueueAttributes
+      Resource: "${self:custom.environment.SQS_QUEUE_ARN}"
 
-  - Effect: 'Allow'
-    Action:
-      - "lambda:InvokeFunction"
-    Resource:
-      - Fn::Join:
-        - ':'
-        - - arn:aws:lambda
-          - Ref: AWS::Region
-          - Ref: AWS::AccountId
-          - function:${self:service}-${self:provider.stage}-*
-  
+    - Effect: "Allow"
+      Action:
+        - "lambda:InvokeFunction"
+      Resource:
+        - Fn::Join:
+            - ":"
+            - - arn:aws:lambda
+              - Ref: AWS::Region
+              - Ref: AWS::AccountId
+              - function:${self:service}-${self:provider.stage}-*
+
 package: # Optional deployment packaging configuration
   # include: # Specify the directories and files which should be included in the deployment package
-    # - src/**
-    # - handler.js
+  # - src/**
+  # - handler.js
   exclude: # Specify the directories and files which should be excluded in the deployment package
     - .git/**
     - apollo.config.js
@@ -80,21 +80,6 @@ package: # Optional deployment packaging configuration
   excludeDevDependencies: true
 
 functions:
-  syncDatabaseWithSportRadarHandler:
-    handler: api/syncDatabaseHandler.handler
-    events:
-      # - http:
-      #     path: hello
-      #     method: get
-      - schedule: cron(*/5 * * * ? *) # +2h for Berlin Time
-
-  liveUpdateHandler:
-    handler: api/liveUpdateHandler.handler
-    events:
-      - sqs:
-          arn: ${self:custom.environment.SQS_QUEUE_ARN}
-          batchSize: 2
-
   graphqlHandler:
     handler: api/graphqlHandler.graphqlHandler
     events:
@@ -104,9 +89,12 @@ functions:
           cors: true
       - http:
           path: graphql
+          method: get
+          cors: true
+      - http:
+          path: graphql
           method: post
           cors: true
-          
       # - cloudFront:
       #     eventType: origin-request
       #     origin: https://app.acme.com

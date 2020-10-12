@@ -1,6 +1,6 @@
 module.exports = {
   client: {
-    service: 'ovs-graph@dev',
+    service: 'my-graph@dev',
     includes: ['./graphql/**/*.js']
   },
   service: {

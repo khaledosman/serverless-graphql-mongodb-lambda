@@ -27,7 +27,7 @@
     ]
   },
   "scripts": {
-    "start": "npx apollo service:push --tag=offline && sls offline start",
+    "start": "npx apollo service:push --variant=offline && sls offline start",
     "debug": "node --inspect --debug-port=9229 node_modules/serverless/bin/serverless offline start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "npx git-cz",
@@ -36,8 +36,8 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "deploy": "yarn deploy:dev",
-    "deploy:dev": "sls deploy --stage dev --region eu-central-1 && npx apollo service:push --tag=dev",
-    "deploy:live": "sls deploy --stage live --region us-east-1 && npx apollo service:push --tag=live",
+    "deploy:dev": "sls deploy --stage dev --region eu-central-1 && npx apollo service:push --variant=dev",
+    "deploy:live": "sls deploy --stage live --region us-east-1 && npx apollo service:push --variant=live",
     "remove:dev": "sls remove --stage dev --region eu-central-1",
     "remove:live": "sls remove --stage live --region us-east-1"
   },

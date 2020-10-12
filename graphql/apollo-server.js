@@ -23,11 +23,11 @@ const server = new ApolloServer({
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
     debugPrintReports: true,
-    schemaTag: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE
+    graphqlVariant: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE
   },
   cache: new RedisCache(redisOptions),
   plugins: [responseCachePlugin()],
-  schemaTag: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE,
+  graphqlVariant: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE,
   context: async ({ event, context }) => {
     // get the user token from the headers
     // const token = req.headers.authorization || ''
