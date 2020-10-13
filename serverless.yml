@@ -5,7 +5,7 @@ service:
 
 custom:
   aws_profile: "awsprofile"
-  environment: ${file(env.yml):${self:provider.stage}, file(env.yml):default}
+  environment: ${file(env.yml):${self:provider.stage}, file(env.yml):offline}
   warmup:
     enabled: true
     prewarm: true
@@ -20,7 +20,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs10.x
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'offline'}
   profile: ${self:custom.aws_profile} # aws credentials profile to use
   region: ${opt:region, 'eu-central-1'}
   apiGateway:
@@ -38,6 +38,9 @@ provider:
     NODE_ENV: PRODUCTION
     AWS_STAGE: ${self:provider.stage}
     GOOGLE_APPLICATIONS_CREDENTIALS: "./firebase-adminsdk.json"
+    APOLLO_KEY: ${self:custom.environment.APOLLO_KEY}
+    APOLLO_GRAPH_VARIANT: ${self:custom.environment.APOLLO_GRAPH_VARIANT}
+    APOLLO_SCHEMA_REPORTING: ${self:custom.environment.APOLLO_SCHEMA_REPORTING}
 
 iamRoleStatements:
   iamRoleStatements:

@@ -27,7 +27,7 @@
     ]
   },
   "scripts": {
-    "start": "npx apollo service:push --variant=offline && sls offline start",
+    "start": "sls offline start",
     "debug": "node --inspect --debug-port=9229 node_modules/serverless/bin/serverless offline start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "npx git-cz",
@@ -36,8 +36,8 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "deploy": "yarn deploy:dev",
-    "deploy:dev": "sls deploy --stage dev --region eu-central-1 && npx apollo service:push --variant=dev",
-    "deploy:live": "sls deploy --stage live --region us-east-1 && npx apollo service:push --variant=live",
+    "deploy:dev": "sls deploy --stage dev --region eu-central-1",
+    "deploy:live": "sls deploy --stage live --region us-east-1",
     "remove:dev": "sls remove --stage dev --region eu-central-1",
     "remove:live": "sls remove --stage live --region us-east-1"
   },
@@ -49,11 +49,11 @@
   },
   "dependencies": {
     "apollo-server-cache-redis": "^1.2.2",
-    "apollo-server-lambda": "^2.18.1",
+    "apollo-server-lambda": "^2.18.2",
     "apollo-server-plugin-response-cache": "^0.5.5",
     "axios": "^0.20.0",
     "graphql-import": "^0.7.1",
-    "mongoose": "^5.10.7"
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -64,13 +64,12 @@
     "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/aws-lambda": "^8.10.63",
-    "@types/node": "^14.11.2",
-    "apollo": "^2.31.0",
-    "aws-sdk": "^2.763.0",
+    "@types/node": "^14.11.8",
+    "aws-sdk": "^2.771.0",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^4.3.0",
-    "semantic-release": "^17.1.2",
-    "serverless": "^2.3.0",
+    "semantic-release": "^17.2.1",
+    "serverless": "^2.6.0",
     "serverless-offline": "^6.8.0",
     "serverless-plugin-warmup": "^4.9.0"
   },

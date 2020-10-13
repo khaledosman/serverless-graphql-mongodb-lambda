@@ -15,19 +15,13 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   mocks: true,
-  playground: { endpoint: process.env.IS_OFFLINE ? 'http://localhost:3000/graphql' : `${process.env.BASE_URL}/graphql` },
+  playground: { endpoint: process.env.IS_OFFLINE ? `http://localhost:3000/${process.env.AWS_STAGE}/graphql` : `${process.env.BASE_URL}/graphql` },
   introspection: true,
   tracing: false,
   sendReportsImmediately: true,
   cacheControl: { defaultMaxAge: 10 },
-  engine: {
-    apiKey: process.env.ENGINE_API_KEY,
-    debugPrintReports: true,
-    graphqlVariant: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE
-  },
   cache: new RedisCache(redisOptions),
   plugins: [responseCachePlugin()],
-  graphqlVariant: process.env.IS_OFFLINE ? 'offline' : process.env.AWS_STAGE,
   context: async ({ event, context }) => {
     // get the user token from the headers
     // const token = req.headers.authorization || ''
