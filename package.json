@@ -48,12 +48,13 @@
     }
   },
   "dependencies": {
-    "apollo-server-cache-redis": "^1.2.2",
-    "apollo-server-lambda": "^2.18.2",
-    "apollo-server-plugin-response-cache": "^0.5.5",
+    "apollo-server-cache-redis": "^1.2.3",
+    "apollo-server-lambda": "^2.21.0",
+    "apollo-server-plugin-response-cache": "^0.6.0",
     "axios": "^0.21.1",
+    "graphql": "^15.5.0",
     "graphql-import": "^0.7.1",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.11.17"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -61,17 +62,17 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/npm": "^7.0.10",
     "@semantic-release/release-notes-generator": "^9.0.1",
-    "@types/aws-lambda": "^8.10.63",
-    "@types/node": "^14.11.8",
-    "aws-sdk": "^2.771.0",
+    "@types/aws-lambda": "^8.10.72",
+    "@types/node": "^14.14.31",
+    "aws-sdk": "^2.848.0",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^4.3.0",
-    "semantic-release": "^17.2.3",
-    "serverless": "^2.6.0",
+    "husky": "^5.0.9",
+    "semantic-release": "^17.3.9",
+    "serverless": "^2.25.2",
     "serverless-offline": "^6.8.0",
-    "serverless-plugin-warmup": "^4.9.0"
+    "serverless-plugin-warmup": "^5.2.0"
   },
   "author": "Khaled Osman",
   "license": "MIT"

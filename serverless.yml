@@ -1,5 +1,4 @@
-service:
-  name: serviceName
+service: serviceName
 # app: app
 # org: org
 
@@ -23,7 +22,9 @@ provider:
   stage: ${opt:stage, 'offline'}
   profile: ${self:custom.aws_profile} # aws credentials profile to use
   region: ${opt:region, 'eu-central-1'}
+  lambdaHashingVersion: 20201221
   apiGateway:
+    shouldStartNameWithService: true
     minimumCompressionSize: 1024
   tracing:
     apiGateway: true
@@ -41,27 +42,30 @@ provider:
     APOLLO_KEY: ${self:custom.environment.APOLLO_KEY}
     APOLLO_GRAPH_VARIANT: ${self:custom.environment.APOLLO_GRAPH_VARIANT}
     APOLLO_SCHEMA_REPORTING: ${self:custom.environment.APOLLO_SCHEMA_REPORTING}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - lambda:*
+          Resource: "*"
 
-iamRoleStatements:
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - sqs:SendMessage
-        - sqs:ReceiveMessage
-        - sqs:DeleteMessage
-        - sqs:GetQueueAttributes
-      Resource: "${self:custom.environment.SQS_QUEUE_ARN}"
+        - Effect: "Allow"
+          Action:
+            - "ses:SendEmail"
+            - "ses:SendRawEmail"
+          Resource:
+            - "*"
 
-    - Effect: "Allow"
-      Action:
-        - "lambda:InvokeFunction"
-      Resource:
-        - Fn::Join:
-            - ":"
-            - - arn:aws:lambda
-              - Ref: AWS::Region
-              - Ref: AWS::AccountId
-              - function:${self:service}-${self:provider.stage}-*
+        - Effect: "Allow"
+          Action:
+            - s3:*
+          Resource: "*"
+
+        - Effect: "Allow"
+          Action:
+            - "sqs:*"
+          Resource: "*"
 
 package: # Optional deployment packaging configuration
   # include: # Specify the directories and files which should be included in the deployment package
