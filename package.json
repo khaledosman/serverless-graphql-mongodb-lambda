@@ -69,7 +69,7 @@
     "aws-sdk": "^2.848.0",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^5.0.9",
-    "semantic-release": "^17.3.9",
+    "semantic-release": "^19.0.3",
     "serverless": "^2.25.2",
     "serverless-offline": "^6.8.0",
     "serverless-plugin-warmup": "^5.2.0"
