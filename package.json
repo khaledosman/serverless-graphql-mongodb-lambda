@@ -70,8 +70,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^5.0.9",
     "semantic-release": "^19.0.3",
-    "serverless": "^2.25.2",
-    "serverless-offline": "^6.8.0",
+    "serverless": "^2.72.3",
+    "serverless-offline": "^9.3.0",
     "serverless-plugin-warmup": "^5.2.0"
   },
   "author": "Khaled Osman",
